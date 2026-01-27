@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import { useEffect, useState } from 'react'
 import { supabase } from '../client'
 import CreatorCard from '../components/CreatorCard'
+import { Link } from 'react-router-dom'
 
 function Home(){
     const [creators, setCreators] = useState([])
@@ -37,15 +38,16 @@ function Home(){
             <Header></Header>
             <div className="card-list">
                 {creators.map(creator => (
-                <CreatorCard
-                    key={creator.id}
-                    id={creator.id}
-                    name={creator.name}
-                    url={creator.url}
-                    description={creator.description}
-                    imageURL={creator.imageURL}
-
-                />
+                    <Link key={creator.id} to={`/view-creator/${creator.id}`}>
+                        <CreatorCard
+                            key={creator.id}
+                            id={creator.id}
+                            name={creator.name}
+                            url={creator.url}
+                            description={creator.description}
+                            imageURL={creator.imageURL}
+                        />
+                </Link>
                 ))}
             </div>
         </div>
