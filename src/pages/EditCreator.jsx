@@ -1,10 +1,11 @@
 import { supabase } from "../client"
 import {useState, useEffect } from 'react'
 import Header from '../components/Header'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function EditCreator(){
     const { id } = useParams();
+    const navigate = useNavigate();
     const [ creator, setCreator ] = useState({name: '', url: '', description: '', imageURL:'', insta_link:''})
     useEffect(() => {
         const fetchCreator = async () => {
@@ -25,12 +26,14 @@ function EditCreator(){
                     }
                     else{
                          setCreator({
+                            id: data.id || '',
                             name: data.name || '',
                             url: data.url || '',
                             description: data.description || '',
                             imageURL: data.imageURL || '',
                             insta_link: data.insta_link || ''
                         });
+
                     }
 
         }
@@ -46,12 +49,39 @@ function EditCreator(){
     }));
   };
 
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!creator.id) {
+    console.error('No ID specified for updating creator');
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from('creators')
+    .update({
+      name: creator.name,
+      imageURL: creator.imageURL,
+      description: creator.description,
+      url: creator.url,
+      insta_link: creator.insta_link
+    })
+    .eq('id', creator.id); // update only the row with this id
+
+  if (error) {
+    console.error('Error updating creator:', error);
+  } else {
+    console.log('Creator updated:', data);
+    navigate('/');
+  }
+};
+
         return(
         <div>
             <Header></Header>
             <div className="edit-creator-container">
                 <h2>Edit Creator</h2>
-                 <form className="input-form">
+                 <form className="input-form" onSubmit={handleSubmit}>
                     <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input 
@@ -117,6 +147,7 @@ function EditCreator(){
                         />
                     </div>
 
+                     <input type="submit" value="Submit"/>
                 </form>
             </div>
         </div>

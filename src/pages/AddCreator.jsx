@@ -30,6 +30,7 @@ function AddCreator(){
     } else {
       console.log('Creator added:', data)
       setCreator({ name: '', imageURL: '', description: '', url: '', insta_link:'' })
+      navigate('/');
     }
   }
   
