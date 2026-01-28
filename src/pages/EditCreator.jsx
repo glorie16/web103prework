@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 function EditCreator(){
     const { id } = useParams();
-    const [ creator, setCreator ] = useState({name: '', url: '', description: '', imgURL:''})
+    const [ creator, setCreator ] = useState({name: '', url: '', description: '', imageURL:'', insta_link:''})
     useEffect(() => {
         const fetchCreator = async () => {
             const { data, error } = await supabase
@@ -24,13 +24,27 @@ function EditCreator(){
                        console.error(error)
                     }
                     else{
-                        setCreator(data)
+                         setCreator({
+                            name: data.name || '',
+                            url: data.url || '',
+                            description: data.description || '',
+                            imageURL: data.imageURL || '',
+                            insta_link: data.insta_link || ''
+                        });
                     }
 
         }
 
         fetchCreator()
     },[id])
+
+    const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCreator((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
         return(
         <div>
@@ -43,17 +57,21 @@ function EditCreator(){
                     <input 
                         type="text" 
                         id="name"  
+                        name="name"
                         value={creator.name}
+                        onChange={handleChange}
                         required 
                         />
-                    <div/>
+                        </div>
 
                     <div className="form-group">
                     <label htmlFor="image">Image</label>
                     <input 
                         type="text" 
                         id="image"
-                        value={creator.imgURL}
+                        name="imageURL"
+                        value={creator.imageURL}
+                        onChange={handleChange}
                         />
                     </div>
 
@@ -63,21 +81,26 @@ function EditCreator(){
                     <input 
                         type="text" 
                         id="desc"
+                        name="description"
                         value={creator.description}
+                        onChange={handleChange}
                         />
                     </div>
 
+            
                     <h2>Social Media Links</h2>
                     <h3>Provide at least one of the artist's social media links.</h3>
-                    </div>
+                
 
                     <div className="form-group">
                     <label htmlFor="youtube">Youtube</label>
                     <h2>The artist's Youtube handle (without the @ sign) </h2>
                     <input 
                         type="text" 
-                        id="desc"
+                        id="link"
+                        name="url"
                         value={creator.url}
+                        onChange={handleChange}
                         />
                     </div>
 
@@ -86,7 +109,10 @@ function EditCreator(){
                     <h2>The artist's Instagram handle (without the @ sign)</h2>
                     <input 
                         type="text" 
-                        id="desc"
+                        id="insta"
+                        name="insta_link"
+                        value={creator.insta_link}
+                        onChange={handleChange}
                         />
                     </div>
 

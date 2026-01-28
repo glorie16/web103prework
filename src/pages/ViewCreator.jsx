@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom'
 
 function ViewCreator(){
     const { id } = useParams();
-    const [ creator, setCreator ] = useState(null)
+    const [ creator, setCreator ] = useState({name: '', imageURL: '', description: ''})
     useEffect(() => {
         const fetchCreator = async () => {
             const { data, error } = await supabase
@@ -32,11 +32,19 @@ function ViewCreator(){
         fetchCreator()
     },[id])
 
+    console.log("Image URL:", creator.imageURL);
+
         return(
         <div>
             <Header></Header>
             <div className="view-creator-container">
-                <h2>{creator?.name}</h2>
+                <h2>{creator.name}</h2>
+                {creator?.imageURL && (
+                    <img
+                        src={creator.imageURL}
+                        alt="Creator"
+                        style={{width:'200px', marginTop: '10px'}}/>
+                )}
                 <p>{creator?.description}</p>
                 {creator && (
                     <Link to={`/edit/${creator.id}`} className="btn">
