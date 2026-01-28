@@ -5,6 +5,7 @@ function AddCreator(){
     return(
         <div>
             <Header></Header>
+            <h2>Add an Artist</h2>
              <form className="input-form">
             <div className="form-group">
               <label for="name">Name</label>
@@ -32,7 +33,7 @@ function AddCreator(){
               <input type="text" id="desc"></input>
             </div>
 
-             <div className="form-group">
+             {/*<div className="form-group">
               <label for="instagram">Instagram</label>
               <h2>The artist's Instagram handle (without the @ sign)</h2>
               <input type="text" id="desc"></input>
@@ -42,7 +43,7 @@ function AddCreator(){
               <label for="twitter">Twitter</label>
               <h2>The artist's Twitter handle (without the @ sign).</h2>
               <input type="text" id="twitter"></input>
-            </div>
+            </div>*/}
           </form>
         </div>
     )
