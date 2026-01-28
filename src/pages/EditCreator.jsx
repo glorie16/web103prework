@@ -66,6 +66,7 @@ function EditCreator(){
 
                     <div className="form-group">
                     <label htmlFor="image">Image</label>
+                    <h3>Provide a link to the image of the artist.</h3>
                     <input 
                         type="text" 
                         id="image"
@@ -77,7 +78,7 @@ function EditCreator(){
 
                     <div className="form-group">
                     <label htmlFor="description">Description</label>
-                    <h2>Provide a link to the image of the artist.</h2>
+                    <h3>Provide a description of the artist.</h3>
                     <input 
                         type="text" 
                         id="desc"
