@@ -1,8 +1,7 @@
-# WEB103 Prework - *👉🏿 Name of App Here*
-
+# WEB103 Prework - *👉🏿 Artverse*
 Submitted by: **Gloriele Mendoza**
 
-About this web app: **👉🏿 app description here**
+About this web app: **👉🏿 This is a frontend web app meant for people to find their favorite digital artists. They can add artists, delete artists, and edit artists. **
 
 Time spent: **👉🏿 X** hours
 
@@ -11,13 +10,13 @@ Time spent: **👉🏿 X** hours
 The following **required** functionality is completed:
 
 <!-- 👉🏿👉🏿👉🏿 Make sure to check off completed functionality below -->
-- [ ] **A logical component structure in React is used to create the frontend of the app**
-- [ ] **At least five content creators are displayed on the homepage of the app**
+- [X] **A logical component structure in React is used to create the frontend of the app**
+- [X] **At least five content creators are displayed on the homepage of the app**
 - [ ] **Each content creator item includes their name, a link to their channel/page, and a short description of their content**
-- [ ] **API calls use the async/await design pattern via Axios or fetch()**
-- [ ] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
-- [ ] **Each content creator has their own unique URL**
-- [ ] **The user can edit a content creator to change their name, url, or description**
+- [X] **API calls use the async/await design pattern via Axios or fetch()**
+- [X] **Clicking on a content creator item takes the user to their details page, which includes their name, url, and description**
+- [X] **Each content creator has their own unique URL**
+- [X] **The user can edit a content creator to change their name, url, or description**
 - [ ] **The user can delete a content creator**
 - [ ] **The user can add a new content creator by entering a name, url, or description and then it is displayed on the homepage**
 
