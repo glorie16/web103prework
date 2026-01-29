@@ -6,8 +6,8 @@ function Header(){
     const navigate = useNavigate()
 
     return(
-        <div>
-          <h1>Artverse</h1>
+        <div className="header">
+          <h1 className="title">Artverse</h1>
         <h2>Find digital artists who inspire you.</h2>
         
         <div className="btn-container">

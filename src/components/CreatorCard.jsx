@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { supabase } from '../client'
+import './CreatorCard.css'
 
 function CreatorCard(props){
-    const navigate = useNavigate();
     return(
-        <div>
+        <div className="creator-card">
             <h2 className="name">{props.name}</h2>
             <p className="description">{props.description}</p>
         </div>
