@@ -1,9 +1,8 @@
 
 .creator-card{
     border: 2px solid palevioletred;
-    max-width: 32rem;
+
     height: 35rem;
-    margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;

@@ -1,23 +1,21 @@
 .btn-container{
   margin-top: 50px;
   gap: 10px;
-  margin: 0 auto;
+
 }
 
 .header {
   background-color: #ffbd00;
   color: white;
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  min-width: 100vw;
   padding-bottom: 5rem;
   padding-top: 5rem;
+  width: 100vw;
 }
 
-*{
+/**{
   border: 1px dashed red;
-}
+}*/
 
 h1{
   font-size:7rem;
