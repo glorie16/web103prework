@@ -1,10 +1,11 @@
 import { supabase } from "../client"
 import {useState, useEffect } from 'react'
 import Header from '../components/Header'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function ViewCreator(){
     const { id } = useParams();
+    const navigate = useNavigate();
     const [ creator, setCreator ] = useState({name: '', imageURL: '', description: ''})
     useEffect(() => {
         const fetchCreator = async () => {
@@ -34,6 +35,21 @@ function ViewCreator(){
 
     console.log("Image URL:", creator.imageURL);
 
+    const deleteCreator = async (event) =>{
+        event.preventDefault();
+
+        const confirmed = window.confirm("Are you sure you want to delete this artist?");
+        
+        if(!confirmed) return;
+
+        await supabase
+            .from('creators')
+            .delete()
+            .eq('id', id)
+
+            navigate('/')
+    }
+
         return(
         <div>
             <Header></Header>
@@ -47,10 +63,14 @@ function ViewCreator(){
                 )}
                 <p>{creator?.description}</p>
                 {creator && (
-                    <Link to={`/edit/${creator.id}`} className="btn">
-                        Edit Creator
-                    </Link>
+                    <button onClick={() => navigate(`/edit/${creator.id}`)} className="edit-btn">
+                        Edit Artist
+                    </button>
                     )}
+
+                <button className="delete-btn" onClick={deleteCreator}>
+                    Delete Artist
+                    </button>
             </div>
         </div>
     )
