@@ -5,11 +5,12 @@
 }
 
 .header {
-  background-color: #ffbd00;
+  background: linear-gradient(to bottom right, #ffbd00, rgb(244, 173, 173) 70%);
   color: white;
   font-family: Arial, sans-serif;
   padding-bottom: 5rem;
   padding-top: 5rem;
+  margin: 0 auto;
   width: 100vw;
 }
 

@@ -1,14 +1,90 @@
 
 .creator-card{
-    border: 2px solid palevioletred;
-
+    background-color: white;
     height: 35rem;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color:white;
+    position:relative;
+    
+    
+    display: flex;
+    flex-direction: column; /* stack name, description, buttons vertically */
+    justify-content: flex-end; /* push content to bottom */
+    overflow: hidden;
+    padding: 16px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.top-row{
+    margin-bottom: 20px;
+}
+
+.bottom-row{
+    margin-bottom: 20px;
+}
+
+.description{
+    font-size:1.1rem;
+}
+
+.name{
+    font-size: 4rem;
 }
 
 .creator-card:hover{
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.insta-btn, .yt-btn {
+  background: transparent;
+  height: 75px;
+  width: 75px;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insta-btn:hover, .yt-btn:hover{
+    transform: scale(1.1);
+}
+
+.insta-btn img, .yt-btn img {
+  max-width: 80%;  /* fit inside the button with some padding */
+  max-height: 80%;
+  object-fit: contain;
+  display: block;
+}
+
+
+
+.creator-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+  border-radius: 10px;
+  z-index: 0;
+  opacity: 0;                /* start invisible */
+  transition: opacity 0.3s ease;
+}
+
+.creator-card:hover::before {
+  opacity: 1;               /* appear on hover */
+}
+
+.card-content {
+  position: relative;
+  z-index: 10000; /* above overlay */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

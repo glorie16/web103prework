@@ -1,13 +1,14 @@
 body{
-    background-color: white;
+    
     width: 100vw;
     height: 100vh;
+    margin-left: -10px;
+    margin-top:-20px;
 }
 
 .Home{
-  margin-left: -20px;
-  margin-top:-20px;
   padding-bottom:100px;
+  background: linear-gradient(to bottom, rgb(255, 252, 243) 60%, #ffd154 100%);
 }
 .card-list {
   max-width:80%;
